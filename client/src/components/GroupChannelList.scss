@@ -1,0 +1,21 @@
+.team-channel-list__add-button {
+    padding-left: 10px;
+    border: none;
+    background-color: transparent;
+    color: rgb(184, 224, 146);
+    transition: .3s;
+    margin-left: auto;
+    span {
+        font-size: 14px;
+        margin-left: 10px;
+    }
+
+    &:hover {
+        color: white;
+        transition: .3s;
+    }
+}
+
+.team-channel-list__header__title {
+    display: flex;
+}

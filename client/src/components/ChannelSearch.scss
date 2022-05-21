@@ -1,0 +1,33 @@
+// .channel-search__input__text {
+//     padding: 5px 5px 5px 30px;
+//     // background: url('../assets/icon.png') no-repeat scroll 7px 7px;
+// }
+
+.channel-search__input__wrapper {
+    color: white;
+    position: relative;
+
+    input {
+        padding: 10px 10px 10px 35px;
+        color: white;
+        background-color: rgb(89, 147, 68);
+        // border: solid white 1px;
+        border: none;
+        border-radius: 7px;
+        transition: .3s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgb(132, 190, 110);
+            transition: .3s;
+        }
+    }
+
+    &:after {
+        font-family: 'FontAwesome';
+        content: '\f002';
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+}

@@ -1,0 +1,84 @@
+.auth__form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.auth__form-container_fields__title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px 0 40px 0;
+    color: #455153;
+}
+
+.auth__form-container_fields {
+    background-color: white;
+    width: 300px;
+    padding: 30px;
+    margin: 0 10px 0 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.5);
+
+    label {
+        display: block;
+        margin: 15px 0 5px 0;
+        font-size: 15px;
+        color: rgb(117, 117, 117);
+    }
+
+    input {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        color: black;
+        background-color: rgb(224, 233, 233);
+        width: 100%;
+        box-sizing: border-box;
+        display: block;
+        transition: .3s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(128, 128, 128, 0.4);
+            transition: .3s;
+        }
+    }
+
+    button {
+        padding: 10px 15px;
+        width: 100%;
+        margin-top: 25px;
+        border: solid 2px rgb(10, 59, 64);
+        color: rgb(10, 59, 64);
+        background-color: transparent;
+        border-radius: 5px;
+        transition: .3s;
+
+        &:hover {
+            background-color: rgb(10, 59, 64);
+            color: white;
+            transition: .3s;
+        }
+    }
+}
+
+.auth__form-container_fields-account {
+    p {
+        margin-top: 30px;
+        color: #455153;
+        font-size: 12px;
+
+    }
+
+    span {
+        text-decoration: underline;
+    }
+}
+
+@media (max-width: 400px) {
+    .auth__form-container_fields {
+        width: 100%;
+        padding: 20px;
+    }
+}

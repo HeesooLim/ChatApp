@@ -1,0 +1,38 @@
+.channel-list__sidebar {
+    background-color: rgb(89, 147, 68);
+
+    img {
+        -webkit-filter: invert(100%);
+        /* Safari/Chrome */
+        filter: invert(100%);
+    }
+}
+
+.channel-list-icon {
+    // background-color: rgb(121, 178, 66);
+    margin: 10px 10px 0 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.channel-list__list__wrapper {
+    background-color: rgb(108, 165, 55);
+    color: white;
+    padding: 0 10px;
+    min-height: 100vh;
+}
+
+.str-chat-channel-list {
+    float: none !important;
+    height: auto !important;
+    color: white !important;
+    
+    &:last-of-type {
+        margin-top: 40px;
+    }
+}
+
+p[role="listitem"] {
+    font-size: 12px;
+    margin-left: 10px;
+}
