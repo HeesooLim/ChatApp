@@ -1,25 +1,21 @@
 import React from "react";
-import { Channel, useChatContext, MessageTeam } from "stream-chat-react";
+import { Channel, MessageTeam } from "stream-chat-react";
 
 import { ChannelInner, CreateChannel, EditChannel } from './';
 import './ChannelContainer.scss';
 
-const ChannelContainer = ({ isCreating, setIsCreating, isEditing, setIsEditing, createType }) => {
-  const { channel } = useChatContext();
-
+const ChannelContainer = ({ isCreating, setIsCreating, isEditing, setIsEditing, createType, isChannelListOpen }) => {
   if (isCreating) {
-    console.log('creaging..')
     return (
-      <div className="channel__container">
+      <div className={(isChannelListOpen ? "list-open" : "") + " channel__container"}>
         <CreateChannel createType={createType} setIsCreating={setIsCreating} />
       </div>
     )
   }
 
   if (isEditing) {
-    console.log('editing..')
     return (
-      <div className="channel__container">
+      <div className={(isChannelListOpen ? "list-open" : "") + " channel__container"}>
         <EditChannel setIsEditing={setIsEditing} />
       </div>
     )
@@ -33,7 +29,7 @@ const ChannelContainer = ({ isCreating, setIsCreating, isEditing, setIsEditing, 
   )
 
   return (
-    <div className="channel__container">
+    <div className={(isChannelListOpen ? "list-open" : "") + " channel__container"}>
       <Channel
         EmptyStateIndicator={EmptyState}
         Message={(messageProps, i) => <MessageTeam key={i} {...messageProps} />}

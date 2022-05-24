@@ -15,14 +15,17 @@ const cookies = new Cookies();
 const authToken = cookies.get("token");
 
 if (authToken) {
+  console.log("there is authToken!");
+  console.log(`name: ${cookies.get('username')}`)
   client.connectUser({
-    id: cookies.get('id'),
+    id: cookies.get('userId'),
     name: cookies.get('username'),
     fullName: cookies.get('fullName'),
     phoneNumber: cookies.get('phoneNumber'),
     image: cookies.get('avatarURL'),
     hashedPassword: cookies.get('hashedPassword'),
   }, authToken);
+  console.log('connected user')
 }
 
 function App() {
@@ -30,6 +33,7 @@ function App() {
   const [createType, setCreateType] = useState('');
   const [isCreating, setIsCreating] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [isChannelListOpen, setIsChannelListOpen] = useState(true);
 
   if (!authToken) return <Auth />
 
@@ -41,6 +45,8 @@ function App() {
           setIsCreating={setIsCreating}
           setCreateType={setCreateType}
           setIsEditing={setIsEditing}
+          isChannelListOpen={isChannelListOpen}
+          setIsChannelListOpen={setIsChannelListOpen}
         />
         <ChannelContainer
           isCreating={isCreating}
@@ -48,6 +54,7 @@ function App() {
           isEditing={isEditing}
           setIsEditing={setIsEditing}
           createType={createType}
+          isChannelListOpen={isChannelListOpen}
         />
       </Chat>
     </div>

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 
-import LoginImage from '../assets/login.jpg';
 import './Auth.scss';
 
 const cookies = new Cookies();
@@ -27,18 +26,18 @@ const Auth = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const { fullName, username, password, phoneNumber, avatarURL } = form;
+        const { username, password, phoneNumber, avatarURL } = form;
 
         const URL = 'http://localhost:5000/auth';
 
-        const { data: { token, userId, hashedPassword } } = await axios.post(`${URL}/${isRegister ? 'register' : 'login'}`, {
-            username, password, fullName, phoneNumber, avatarURL
+        const { data: { token, userId, hashedPassword, fullName } } = await axios.post(`${URL}/${isRegister ? 'register' : 'login'}`, {
+            username, password, fullName: form.fullName, phoneNumber, avatarURL
         });
 
         cookies.set('token', token);
-        cookies.set('name', username);
+        cookies.set('username', username);
         cookies.set('fullName', fullName);
-        cookies.set('id', userId);
+        cookies.set('userId', userId);
 
         if (isRegister) {
             cookies.set('phoneNumber', phoneNumber);

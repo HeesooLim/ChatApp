@@ -1,26 +1,30 @@
 import React from 'react'
 import { Avatar, useChatContext } from 'stream-chat-react';
 
-const GroupChannelPreview = ({ channel, type }) => {
+const GroupChannelPreview = ({ channel, type, setToggleContainer, setIsCreating, setIsEditing, setActiveChannel }) => {
     const { channel: activeChannel, client } = useChatContext();
 
-    const ChannelPreview = () => (
-        <p className="channel-preview__item">
-            # {channel?.data?.name || channel?.data?.id}
-        </p>
-    )
+    const ChannelPreview = () => {
+        if (type !== 'messaging') {
+            return (
+                <p className="channel-preview__item">
+                    # {channel?.data?.name || channel?.data?.id}
+                </p>
+            )
+        }
+    }
 
     const DirectPreview = () => {
-        const members = Object.values(channel.state.members).filter(({user}) => user.id !== client.userId);
+        const members = Object.values(channel.state.members).filter(({ user }) => user.id !== client.userID);
 
         return (
             <div className="channel-preview__item single">
                 <Avatar
                     image={members[0]?.user?.image}
-                    name={members[0]?.user?.fullName}
+                    name={members[0]?.user?.fullName || members[0]?.user?.id}
                     size={24}
                 />
-                <p>{members[0]?.user?.fullName}</p>
+                <p>{members[0]?.user?.fullName || members[0]?.user?.id}</p>
             </div>
         )
     }
@@ -28,13 +32,18 @@ const GroupChannelPreview = ({ channel, type }) => {
     return (
         <div className={
             channel?.id === activeChannel?.id
-            ? 'channel-preview__wrapper__selected'
-            : 'channel-preview__wrapper'}
+                ? 'channel-preview__wrapper__selected'
+                : 'channel-preview__wrapper'}
             onClick={() => {
-                console.log(channel)
+                setIsCreating(false);
+                setIsEditing(false);
+                setActiveChannel(channel);
+                if (setToggleContainer) {
+                    setToggleContainer(prevState => !prevState);
+                }
             }}
         >
-            {type === 'group' ? <ChannelPreview/> : <DirectPreview/>}
+            {type === 'group' ? <ChannelPreview /> : <DirectPreview />}
         </div>
     )
 }

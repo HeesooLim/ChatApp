@@ -5,7 +5,9 @@ import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import
 import './GroupChannelList.scss'
 // import { AddChannel } from '../assets';
 
-const GroupChannelList = ({ children, err = false, loading, type, isCreating, setIsCreating, setCreateType, setIsEditing }) => {
+const GroupChannelList = ({ children, err = false, loading, type, isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) => {
+
+    console.log(children)
     if (err) {
         return type === 'group' ? (
             <div className="group-channel-list">
@@ -36,14 +38,16 @@ const GroupChannelList = ({ children, err = false, loading, type, isCreating, se
                             setCreateType(type === 'group' ? 'group' : 'messaging');
                             setIsCreating((prevState) => !prevState);
                             setIsEditing(false);
-                            // if (setToggleContainer) setToggleContainer((prevState) => !prevState);
+                            if (setToggleContainer) setToggleContainer((prevState) => !prevState);
                         }}
                     >
                         <FontAwesomeIcon icon={solid('circle-plus')} />
                     </button>
                 </p>
             </div>
-            {children}
+            <div className='group-channel-list__content'>
+                {children}
+            </div>
 
 
         </div>

@@ -1,6 +1,6 @@
 $channelXPadding: 20px;
 
-.create-channel__header {
+.create-channel__header, .edit-channel__header {
     display: flex;
     align-items: center;
     padding: 0 $channelXPadding;

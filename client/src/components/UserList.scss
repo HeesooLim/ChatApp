@@ -1,0 +1,14 @@
+.user-list__container {
+    padding: 0 20px;
+
+    .user-list__header, .user-item__wrapper {
+        display: flex;
+        width: 100%;
+        max-width: 500px;
+        justify-content: space-between;
+    }
+
+    .user-item__checkmark {
+        padding-right: 15px;
+    }
+}

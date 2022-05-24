@@ -8,3 +8,5 @@ export { default as ChannelInner } from './ChannelInner.js';
 export { default as EditChannel } from './EditChannel.js';
 export { default as CreateChannel } from './CreateChannel.js';
 export { default as GroupMessage } from './GroupMessage.js';
+export { default as UserList } from './UserList.js';
+export { default as ResultsDropdown } from './ResultsDropdown.js';

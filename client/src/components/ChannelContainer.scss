@@ -3,6 +3,8 @@ $chat-left-margin: 20px;
 .channel__container {
     flex-grow: 1;
     background-color: white;
+
+
 }
 
 .team-channel-header__container {
@@ -10,6 +12,10 @@ $chat-left-margin: 20px;
     padding: 0 20px;
     align-items: center;
     border-bottom: 1px solid rgb(235, 235, 235);
+
+    .team-channel-header__name-multi .str-chat__avatar--circle {
+        display: none !important;
+    }
 }
 
 .str-chat__input-flat {
@@ -48,6 +54,17 @@ $chat-left-margin: 20px;
         font-size: 13px;
         color: rgb(119, 119, 119);
         margin-top: 5px;
+    }
+}
+
+@media (max-width: 650px) {
+    .str-chat__list {
+        padding: 0 10px !important;
+    }
+
+    .str-chat__input-flat .str-chat__textarea>textarea {
+        padding: 20px 63px !important;
+        font-size: 12px !important;
     }
 }
 
@@ -137,4 +154,11 @@ $chat-left-margin: 20px;
 
 .str-chat__list--thread .str-chat__reverse-infinite-scroll {
     padding-top: 0 !important;
+}
+
+
+@media (max-width: 650px) {
+    .channel__container.list-open {
+        display: none;
+    }
 }

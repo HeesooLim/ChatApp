@@ -5,6 +5,7 @@
     color: rgb(184, 224, 146);
     transition: .3s;
     margin-left: auto;
+
     span {
         font-size: 14px;
         margin-left: 10px;
@@ -18,4 +19,62 @@
 
 .team-channel-list__header__title {
     display: flex;
+}
+
+.group-channel-list__content {
+    height: 200px;
+    overflow-y: scroll;
+    padding-right: 25px;
+
+    p {
+        margin: 0;
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.group-channel-list {
+
+    .channel-preview__item,
+    .channel-preview__wrapper__selected {
+        border-radius: 5px;
+        margin-bottom: 5px;
+        transition: .2s;
+        font-size: 13px;
+    }
+
+    .channel-preview__item:hover {
+        transition: .2s;
+        background-color: white;
+        color: #455153;
+    }
+
+    .channel-preview__wrapper__selected {
+        transition: .2s;
+        font-weight: bold;
+        background-color: white;
+        color: #455153;
+        // border-radius: 10px;
+    }
+
+    .channel-preview__item {
+        padding: 5px 10px;
+
+        &.single {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+
+            p {
+                margin: 0;
+                white-space: nowrap;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 13px;
+            }
+        }
+    }
 }

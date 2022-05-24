@@ -8,6 +8,33 @@
     }
 }
 
+.channel-list__container {
+    display: flex;
+    width: auto;
+    
+    // width: auto;
+}
+
+// .channel-list__container.list-open {
+//     // display: flex;
+//     width: 100%;
+// }
+
+@media (max-width: 650px) {
+    // .channel-list__container {
+    //     width: 100%;
+    // }
+
+    .channel-list__container.list-open {
+        // display: flex;
+        width: 100%;
+    }
+
+    .channel-list__list__wrapper {
+        flex-grow: 1;
+    }
+}
+
 .channel-list-icon {
     // background-color: rgb(121, 178, 66);
     margin: 10px 10px 0 10px;
@@ -26,13 +53,41 @@
     float: none !important;
     height: auto !important;
     color: white !important;
-    
-    &:last-of-type {
-        margin-top: 40px;
-    }
 }
 
 p[role="listitem"] {
     font-size: 12px;
     margin-left: 10px;
+}
+
+.str-chat__channel-list-messenger__main {
+    background-color: #6ca537;
+    padding: 0 !important;
+}
+
+.str-chat__channel-list-messenger {
+    min-width: unset !important;
+
+    .str-chat__channel-preview-messenger {
+        color: white !important;
+
+        &.str-chat__channel-preview-messenger--active {
+            color: #455153 !important;
+        }
+
+        .str-chat__avatar--circle {
+            line-height: 45px !important;
+        }
+    }
+
+}
+
+
+
+
+@media (max-width: 650px) {
+    .channel-list-icon {
+        padding: 5px;
+        font-size: 10px;
+    }
 }
