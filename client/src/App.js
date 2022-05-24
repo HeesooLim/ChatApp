@@ -15,8 +15,6 @@ const cookies = new Cookies();
 const authToken = cookies.get("token");
 
 if (authToken) {
-  console.log("there is authToken!");
-  console.log(`name: ${cookies.get('username')}`)
   client.connectUser({
     id: cookies.get('userId'),
     name: cookies.get('username'),
@@ -25,7 +23,6 @@ if (authToken) {
     image: cookies.get('avatarURL'),
     hashedPassword: cookies.get('hashedPassword'),
   }, authToken);
-  console.log('connected user')
 }
 
 function App() {
